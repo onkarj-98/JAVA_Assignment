@@ -1,19 +1,20 @@
 package Inventory_Management;
-import Customer.Customer;
+
 
 import java.text.ParseException;
 import java.util.ArrayList;
-//import java.util.regex.
+
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Logger;
+
 
 public class PurchaseOrder  {
     public   int poNumber;
     public String orderDate;
     public   String shipDate;
+    // stores the all orders under PurchaseOrder class
     public List<OrderItem> orderItems = new ArrayList<>();;
 
 
@@ -34,7 +35,7 @@ public class PurchaseOrder  {
             for(OrderItem item : orderItems){
                 total += item.numberOfItems;
             }
-            System.out.println("Total number of items:\t");
+            System.out.println("Total number of items:\t"+total);
         return total;
     }
     public boolean setShipDate( String date){
@@ -48,10 +49,7 @@ public class PurchaseOrder  {
         }
     }
     public boolean createOrder(StockItem stockItem){
-        if (stockItem == null){
-            System.out.println("Null Object");
-        }
-      OrderItem item = new OrderItem(stockItem.itemNumber, stockItem);
+      OrderItem item = new OrderItem(stockItem, stockItem.totalQuantity);
       orderItems.add(item);
       return true;
     }
@@ -65,6 +63,7 @@ public class PurchaseOrder  {
         for(OrderItem orderItem: orderItems){
             total += orderItem.getTotal();
         }
+        System.out.println("Your total Shipment price is:\t"+total);
         return total;
     }
 

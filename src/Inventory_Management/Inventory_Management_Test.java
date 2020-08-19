@@ -15,17 +15,16 @@ public class Inventory_Management_Test {
         ////////////////////////
         PurchaseOrder po1 = new PurchaseOrder(1001,"12/7/19");
         po1.setShipDate("27/7/19");
-        if (milk == null){
-            System.out.println("Null Object!");
-        }
+
         System.out.println();
         po1.createOrder(milk);
         po1.createOrder(chicken);
         po1.createOrder(apple);
         po1.createOrder(orange);
-      //  po1.isShipped();
+    //    po1.isShipped();
         po1.sumItems();
         po1.totalShipmentPrice();
+
         customer1.addPurchaseOrder(po1);
         System.out.println("Your Order placed successfully, Thank You for Shopping!");
     }

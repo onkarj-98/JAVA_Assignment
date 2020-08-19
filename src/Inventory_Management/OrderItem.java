@@ -1,34 +1,20 @@
 package Inventory_Management;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class OrderItem {
     public int numberOfItems;
-    public List<StockItem> stockItems =  new ArrayList<>();;
+    public StockItem stockItem;
 
-    void addItem(StockItem stockItem){
-        if (stockItem == null){
-            System.out.println("Null Object");
-        }
-        this.stockItems.add(stockItem);
-    }
-    public OrderItem(int numberOfItems, StockItem stockItem){
-        addItem(stockItem);
+    // Whenever new stockitem linked to orderItem it is added through a constructor
+    public OrderItem( StockItem stockItem, int numberOfItems){
+        this.stockItem = stockItem;
         this.numberOfItems = numberOfItems;
     }
-
+    // returns the total price of orderItem ( a single orderItem)
     public double getTotal(){
         double total = 0;
-        double finalTotalOfOrder = 0;
-
-        for (StockItem stockItem : stockItems){
-
-            total += stockItem.getPrice();
-            finalTotalOfOrder = total * numberOfItems;
-        }
-        final double finalTotalOfOrder1 = finalTotalOfOrder;
-        return finalTotalOfOrder1;
-
+           total = stockItem.totalQuantity * stockItem.itemPrice;
+           return  total;
     }
 }

@@ -5,12 +5,7 @@ public class StockItem {
     public   String itemDescription;
     public double itemPrice;
     public   int totalQuantity;
-    public int getQuantity(){
-        return totalQuantity;
-    }
-    public double getPrice(){
-        return itemPrice;
-    }
+
     public StockItem(int itemNumber, String itemDescription, double itemPrice, int totalQuantity){
         this.itemNumber = itemNumber;
         this.itemDescription= itemDescription;
